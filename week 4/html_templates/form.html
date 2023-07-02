@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday APP</title>
+</head>
+<body>
+    <main>
+        <form action="/save_form_data" method="post">
+        <label>name</label>
+        <input type="text" placeholder="name" name="name">
+        <label>year</label>
+        <input type="text" placeholder="yeaer" name="year">
+        <label>month</label>
+        <input type="text" placeholder="month" name="month">
+        <label>day</label>
+        <input type="text" placeholder="day" name="day">
+        <button type="submit">Submit</button>
+        </form>
+        {% if birthdays|length > 0 %}
+        <h3 class="h3tag">All Birthdays</h3>
+        <div class="container">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Birthday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for birthday in birthdays %}
+                        <tr>
+                            <td>{{birthday.name}}</td>
+                            <td>{{birthday.day}}/{{birthday.month}}/{{birthday.year}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+            <h3 class="h3tag">No birthdays found</h3>
+        {% endif %}
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
